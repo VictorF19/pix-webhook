@@ -25,6 +25,10 @@ app.use(logger('dev'));  // Comente essa linha caso não queira que seja exibido
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.get('/alive', (request, response) => {
+    response.status(200).json({ message: 'Alive!'})
+})
+
 // Endpoint para configuração do webhook, você precisa cadastrar https://SEUDOMINIO.com/webhook
 app.post("/webhook", (request, response) => {
     // Verifica se a requisição que chegou nesse endpoint foi autorizada
